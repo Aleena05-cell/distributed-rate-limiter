@@ -1,4 +1,4 @@
-# Distributed API Rate Limiter
+# Distributed Rate Limiter
 
 A distributed rate limiter for HTTP APIs, built with **FastAPI**, **Redis**, and **Docker Compose**. Multiple API instances share one view of each client's usage, so the limit holds no matter which instance handles a request.
 
