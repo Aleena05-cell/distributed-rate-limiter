@@ -1,0 +1,15 @@
+services:
+  redis:
+    image: redis:7
+  api:
+    build: .
+    environment:
+      REDIS_URL: redis://redis:6379
+      CAPACITY: 20
+      RATE: 5
+    depends_on: [redis]
+  nginx:
+    image: nginx:alpine
+    ports: ["8080:80"]
+    volumes: ["./nginx.conf:/etc/nginx/nginx.conf:ro"]
+    depends_on: [api]
